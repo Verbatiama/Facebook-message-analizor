@@ -2,6 +2,7 @@
 import json
 import time
 import math
+import random
 #Read JSON data into the datastore variable
 with open("ITCrowd_message.json", 'r') as f:
     datastore = json.load(f)
@@ -142,7 +143,13 @@ def writeAllMessages():
         except:
             print("</p>")
 
+			
+def randomParticipant():
+    theListofParticipants = []
+    for a in datastore["participants"]:
+        theListofParticipants.append(a["name"])
+    print(random.choice(theListofParticipants))
 #the method that will get run
-writeAllMessages()
+randomParticipant()
 
 
